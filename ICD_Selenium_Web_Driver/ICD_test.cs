@@ -9,8 +9,15 @@ namespace ICD_Selenium_Web_Driver
 {
     internal class ICD_test
     {
+
+        #region Fields and Properties
+
         private IWebDriver driver;
-        
+
+        #endregion Fields and Properties
+
+        #region SetUp and TearDown
+
         [SetUp]
         public void SetUp()
         {
@@ -24,6 +31,10 @@ namespace ICD_Selenium_Web_Driver
             driver.Close();
         }
 
+        #endregion SetUp and TearDown
+
+        #region Tests
+
         private static IEnumerable<TestCaseData> ICDSearchData
         {
             get
@@ -35,14 +46,38 @@ namespace ICD_Selenium_Web_Driver
 
         [Test, ICD(ICDTestType.SmokeTest)]        
         [TestCaseSource(nameof(ICDSearchData))]
-        public void VerifyICDPortalIsFirstSearchResult(string searchCriteria, string expectedURL, string searchEngine)
+        public void VerifyICDPortalIsFirstSearchResultGoogle(string searchCriteria, string expectedURL, string searchEngine)
         {            
-            HomePage search = new HomePage(driver);
+            GoogleHomePage search = new GoogleHomePage(driver);
             search.GoToPage(searchEngine);
-            ResultPage results = search.Criteria(searchCriteria).Search(searchEngine);            
+            GoogleResultPage results = search.Criteria(searchCriteria).Search();            
             results.NavigateTo(results.FirstResult);            
             
             Assert.That(driver.Url, Is.EqualTo(expectedURL));
         }
+
+        private static IEnumerable<TestCaseData> BingICDSearchData
+        {
+            get
+            {
+                yield return new TestCaseData(ICDTestData.SearchPortal, "https://icdportal.com/", ICDTestData.Bing).SetName($"Test Case for {ICDTestData.Bing} using {ICDTestData.SearchPortal}");
+                yield return new TestCaseData(ICDTestData.SearchICDFull, "https://icdportal.com/", ICDTestData.Bing).SetName($"Test Case for {ICDTestData.Bing} using {ICDTestData.SearchICDFull}");
+            }
+        }
+
+        [Test, ICD(ICDTestType.SmokeTest)]
+        [TestCaseSource(nameof(BingICDSearchData))]
+        public void VerifyICDPortalIsFirstSearchResultBing(string searchCriteria, string expectedURL, string searchEngine)
+        {
+            BingHomePage search = new BingHomePage(driver);
+            search.GoToPage(searchEngine);
+            BingResultPage results = search.Criteria(searchCriteria).Search();
+            results.NavigateTo(results.FirstResult);
+
+            Assert.That(driver.Url, Is.EqualTo(expectedURL));
+        }
+
+        #endregion Tests
+
     }
 }
