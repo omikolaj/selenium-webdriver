@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace ICD_Selenium_Web_Driver.PageObjects
 {
@@ -22,6 +24,8 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         #region Fields and Properties
 
         private IWebDriver driver;
+
+        private WebDriverWait wait;
 
         /// <summary>
         /// <see cref="GoogleHomePage"/> search button
@@ -54,8 +58,9 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <returns></returns>
         public virtual GoogleResultPage Search()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _searchBtn.Click();
-            GoogleResultPage resultPage = new GoogleResultPage(driver);
+            GoogleResultPage resultPage = new GoogleResultPage(driver);            
             return resultPage;
         }
 
