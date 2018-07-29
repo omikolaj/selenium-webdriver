@@ -15,7 +15,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <param name="driver"></param>
         public GoogleHomePage(IWebDriver driver)
         {
-            this.driver = driver;
+            this._driver = driver;
             PageFactory.InitElements(driver, this);
         }
 
@@ -23,15 +23,21 @@ namespace ICD_Selenium_Web_Driver.PageObjects
 
         #region Fields and Properties
 
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
-        private WebDriverWait wait;
+        private WebDriverWait _wait;
 
         /// <summary>
         /// <see cref="GoogleHomePage"/> search button
         /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "input[aria-label='Google Search']")]
-        private IWebElement _searchBtn;
+        //[FindsBy(How = How.CssSelector, Using = "input[aria-label='Google Search']")]
+        private IWebElement _searchBtn
+        {
+            get
+            {
+                return _driver.FindElement(By.CssSelector("input[aria-label='Google Search']"));
+            }
+        }
 
         /// <summary>
         /// <see cref="GoogleHomePage"/> search input field
@@ -49,7 +55,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <param name="searchEngine"></param>
         public void GoToPage(string searchEngine)
         {
-            driver.Navigate().GoToUrl(searchEngine);
+            _driver.Navigate().GoToUrl(searchEngine);
         }
 
         /// <summary>
@@ -58,9 +64,9 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <returns></returns>
         public virtual GoogleResultPage Search()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _searchBtn.Click();
-            GoogleResultPage resultPage = new GoogleResultPage(driver);            
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _searchCriteria.SendKeys(Keys.Return);
+            GoogleResultPage resultPage = new GoogleResultPage(_driver);            
             return resultPage;
         }
 

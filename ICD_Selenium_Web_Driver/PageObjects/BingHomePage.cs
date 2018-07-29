@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using System;
 
 namespace ICD_Selenium_Web_Driver.PageObjects
 {
@@ -13,7 +14,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <param name="driver"></param>
         public BingHomePage(IWebDriver driver)
         {
-            this.driver = driver;
+            this._driver = driver;
             PageFactory.InitElements(driver, this);
         }
 
@@ -21,7 +22,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
 
         #region Fields and Properties
 
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
         /// <summary>
         /// <see cref="BingHomePage"/> search button
@@ -46,7 +47,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <param name="searchEngine"></param>
         public void GoToPage(string searchEngine)
         {
-            driver.Navigate().GoToUrl(searchEngine);
+            _driver.Navigate().GoToUrl(searchEngine);
         }
 
         /// <summary>
@@ -55,8 +56,9 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <returns></returns>
         public virtual BingResultPage Search()
         {
-            _searchBtn.Click();
-            BingResultPage resultPage = new BingResultPage(driver);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _searchCriteria.SendKeys(Keys.Return);
+            BingResultPage resultPage = new BingResultPage(_driver);
             return resultPage;
         }
 

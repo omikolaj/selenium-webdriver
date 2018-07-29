@@ -53,7 +53,7 @@ namespace ICD_Selenium_Web_Driver
             GoogleResultPage results = search.Criteria(searchCriteria).Search();            
             results.NavigateTo(results.FirstResult);            
             
-            Assert.That(driver.Url, Is.EqualTo(expectedURL));
+            Assert.That(driver.Url, Is.EqualTo(expectedURL), "The first returned website URL did not match the expected website URL");
         }
 
         private static IEnumerable<TestCaseData> BingICDSearchData
@@ -74,7 +74,34 @@ namespace ICD_Selenium_Web_Driver
             BingResultPage results = search.Criteria(searchCriteria).Search();
             results.NavigateTo(results.FirstResult);
 
-            Assert.That(driver.Url, Is.EqualTo(expectedURL));
+            Assert.That(driver.Url, Is.EqualTo(expectedURL), "The first returned website URL did not match the expected website URL");
+        }
+
+        private static IEnumerable<TestCaseData> ICDPortalLoginTests
+        {
+            get
+            {
+                yield return new TestCaseData(ICDTestData.UnregisteredUsername, ICDTestData.UnregisteredPassword).SetName($"Test Case for {nameof(ICDTestData.UnregisteredUsername)} and {nameof(ICDTestData.UnregisteredPassword)}");
+                yield return new TestCaseData(ICDTestData.BlankUsername, ICDTestData.BlankPassword).SetName($"Test Case for {nameof(ICDTestData.BlankUsername)} and {nameof(ICDTestData.BlankPassword)}");
+                yield return new TestCaseData(ICDTestData.UnicodeUsername, ICDTestData.UnicodePassword).SetName($"Test Case for {nameof(ICDTestData.UnicodeUsername)} and {nameof(ICDTestData.UnicodePassword)}");
+                yield return new TestCaseData(ICDTestData.SQLInjectionUsername, ICDTestData.SQLInjectionPassword).SetName($"Test Case for {nameof(ICDTestData.SQLInjectionUsername)} and {nameof(ICDTestData.SQLInjectionPassword)}");
+            }
+        }
+
+        [Test, ICD(ICDTestType.SmokeTest)]
+        [TestCaseSource(nameof(ICDPortalLoginTests))]
+        public void VerifyICDPortalDoesNotAcceptInvalidCredentials(string username, string password)
+        {
+            ICDPortalLogin homePage = new ICDPortalLogin(driver);
+            driver.Navigate().GoToUrl("https://icdportal.com/2gP");
+            homePage.Username.SendKeys(username);
+            homePage.Password.SendKeys(password);
+            homePage.Login();
+
+            bool errorMessageDisplayed = homePage.IsErrorMessageDisplayed;
+
+            Assert.That(errorMessageDisplayed, Is.True, "The error message was not found");
+
         }
 
         #endregion Tests

@@ -15,7 +15,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         /// <param name="driver"></param>
         public GoogleResultPage(IWebDriver driver)
         {
-            this.driver = driver;
+            this._driver = driver;
             PageFactory.InitElements(driver, this);
         }
 
@@ -23,7 +23,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
 
         #region Fields and Properties
 
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
         /// <summary>
         /// Main Div element containing the entire list of the results
@@ -58,7 +58,7 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         public virtual GoogleResultPage NavigateTo(IWebElement result)
         {
             FirstATagResult.Click();
-            driver.SwitchTo().DefaultContent();
+            _driver.SwitchTo().DefaultContent();
             return this;
         }
 
