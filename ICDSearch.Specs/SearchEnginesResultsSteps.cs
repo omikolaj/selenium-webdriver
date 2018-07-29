@@ -1,6 +1,6 @@
 ﻿using ICD_Selenium_Web_Driver.PageObjects;
 using ICD_Selenium_Web_Driver.TestData;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
@@ -100,7 +100,7 @@ namespace ICDSearch.Specs
                     break;
             }
 
-            Assert.AreEqual(_driver.Url, (expectedResult), "The first returned website URL did not match the expected website URL");
+            Assert.That(_driver.Url, Is.EqualTo(expectedResult), "The first returned website URL did not match the expected website URL");
         }
         
         [Then(@"the first result for ""(.*)"" should be ICD Press release")]

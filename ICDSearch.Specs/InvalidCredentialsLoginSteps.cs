@@ -1,6 +1,6 @@
 ﻿using ICD_Selenium_Web_Driver.PageObjects;
 using ICD_Selenium_Web_Driver.TestData;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
@@ -64,7 +64,7 @@ namespace ICDSearch.Specs
         {
             bool errorMessageDisplayed = _loginPage.IsErrorMessageDisplayed;
 
-            Assert.Equals(errorMessageDisplayed, "The error message was not found");
+            Assert.IsTrue(errorMessageDisplayed, "The error message was not found");
         }
     }
 }
