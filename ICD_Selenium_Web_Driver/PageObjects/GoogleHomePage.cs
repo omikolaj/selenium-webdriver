@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.PageObjects;
 using System;
 
 namespace ICD_Selenium_Web_Driver.PageObjects
@@ -24,8 +24,6 @@ namespace ICD_Selenium_Web_Driver.PageObjects
         #region Fields and Properties
 
         private IWebDriver _driver;
-
-        private WebDriverWait _wait;
 
         /// <summary>
         /// <see cref="GoogleHomePage"/> search button
