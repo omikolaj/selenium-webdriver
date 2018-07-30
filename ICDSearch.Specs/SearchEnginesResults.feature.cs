@@ -17,38 +17,56 @@ namespace ICDSearch.Specs
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Search Engines Results")]
+    [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
     public partial class SearchEnginesResultsFeature
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        
+        private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
         
 #line 1 "SearchEnginesResults.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
         {
-            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
+            get
+            {
+                return this._testContext;
+            }
+            set
+            {
+                this._testContext = value;
+            }
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
+        public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
+        {
+            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Search Engines Results", "\tSearch engine results\r\n\tfor Institutional Cash Distributors search phrases\r\n\tsho" +
                     "uld return ICD related data as a first result", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute()]
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute()]
         public virtual void TestInitialize()
         {
+            if (((testRunner.FeatureContext != null) 
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Search Engines Results")))
+            {
+                global::ICDSearch.Specs.SearchEnginesResultsFeature.FeatureSetup(null);
+            }
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -57,6 +75,7 @@ namespace ICDSearch.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Microsoft.VisualStudio.TestTools.UnitTesting.TestContext>(TestContext);
         }
         
         public virtual void ScenarioCleanup()
@@ -64,12 +83,6 @@ namespace ICDSearch.Specs
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search engine returns ICD Portal as first result")]
-        [NUnit.Framework.CategoryAttribute("SearchEngine")]
-        [NUnit.Framework.TestCaseAttribute("Google Search For", "\"Institutional Cash Distributors\"", "\"http://www.google.com\"", null)]
-        [NUnit.Framework.TestCaseAttribute("Google Search For", "\"ICD Portal\"", "\"http://www.google.com\"", null)]
-        [NUnit.Framework.TestCaseAttribute("Bing Search For", "\"Institutional Cash Distributors\"", "\"http://www.bing.com\"", null)]
         public virtual void SearchEngineReturnsICDPortalAsFirstResult(string exampleDescription, string phrase, string searchEngine, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -91,9 +104,55 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Google News returns ICD Press Conference as first result")]
-        [NUnit.Framework.CategoryAttribute("SearchEngine")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search engine returns ICD Portal as first result: Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Engines Results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("SearchEngine")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "Google Search For")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:phrase", "\"Institutional Cash Distributors\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:search engine", "\"http://www.google.com\"")]
+        public virtual void SearchEngineReturnsICDPortalAsFirstResult_Variant0()
+        {
+#line 8
+this.SearchEngineReturnsICDPortalAsFirstResult("Google Search For", "\"Institutional Cash Distributors\"", "\"http://www.google.com\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search engine returns ICD Portal as first result: Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Engines Results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("SearchEngine")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "Google Search For")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:phrase", "\"ICD Portal\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:search engine", "\"http://www.google.com\"")]
+        public virtual void SearchEngineReturnsICDPortalAsFirstResult_Variant1()
+        {
+#line 8
+this.SearchEngineReturnsICDPortalAsFirstResult("Google Search For", "\"ICD Portal\"", "\"http://www.google.com\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search engine returns ICD Portal as first result: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Engines Results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("SearchEngine")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "Bing Search For")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:phrase", "\"Institutional Cash Distributors\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:search engine", "\"http://www.bing.com\"")]
+        public virtual void SearchEngineReturnsICDPortalAsFirstResult_Variant2()
+        {
+#line 8
+this.SearchEngineReturnsICDPortalAsFirstResult("Bing Search For", "\"Institutional Cash Distributors\"", "\"http://www.bing.com\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Google News returns ICD Press Conference as first result")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Engines Results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("SearchEngine")]
         public virtual void GoogleNewsReturnsICDPressConferenceAsFirstResult()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Google News returns ICD Press Conference as first result", new string[] {

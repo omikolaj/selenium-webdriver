@@ -17,37 +17,55 @@ namespace ICDSearch.Specs
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Invalid Credentials Login")]
+    [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
     public partial class InvalidCredentialsLoginFeature
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        
+        private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
         
 #line 1 "InvalidCredentialsLogin.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
         {
-            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
+            get
+            {
+                return this._testContext;
+            }
+            set
+            {
+                this._testContext = value;
+            }
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
+        public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
+        {
+            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Invalid Credentials Login", "\tUser without valid credentials\r\n\tshould not be able to log in\r\n\tto ICD Portal", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute()]
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute()]
         public virtual void TestInitialize()
         {
+            if (((testRunner.FeatureContext != null) 
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Invalid Credentials Login")))
+            {
+                global::ICDSearch.Specs.InvalidCredentialsLoginFeature.FeatureSetup(null);
+            }
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -56,6 +74,7 @@ namespace ICDSearch.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Microsoft.VisualStudio.TestTools.UnitTesting.TestContext>(TestContext);
         }
         
         public virtual void ScenarioCleanup()
@@ -63,14 +82,6 @@ namespace ICDSearch.Specs
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User cannot login with invalid credentials")]
-        [NUnit.Framework.CategoryAttribute("InvalidCredentials")]
-        [NUnit.Framework.TestCaseAttribute("Unregistered User", "\"john\"", "\"password\"", null)]
-        [NUnit.Framework.TestCaseAttribute("Blank username", "\"\"", "\"password\"", null)]
-        [NUnit.Framework.TestCaseAttribute("Blank password", "\"john\"", "\"\"", null)]
-        [NUnit.Framework.TestCaseAttribute("Unicode characters", "\"J”??\"", "\"?„???”??\"", null)]
-        [NUnit.Framework.TestCaseAttribute("SQL injection", "\"\' or \'1\'=\'1\'\"", "\"\' or \'1\'=\'1\'\"", null)]
         public virtual void UserCannotLoginWithInvalidCredentials(string exampleDescription, string username, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -91,9 +102,84 @@ this.ScenarioSetup(scenarioInfo);
 #line 12
  testRunner.And("I press the Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.Then("he should see \"Invalid username and/or password\" message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should see \"Invalid username and/or password\" message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User cannot login with invalid credentials: Unregistered User")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Invalid Credentials Login")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("InvalidCredentials")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Unregistered User")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "Unregistered User")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:username", "\"john\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:password", "\"password\"")]
+        public virtual void UserCannotLoginWithInvalidCredentials_UnregisteredUser()
+        {
+#line 8
+this.UserCannotLoginWithInvalidCredentials("Unregistered User", "\"john\"", "\"password\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User cannot login with invalid credentials: Blank username")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Invalid Credentials Login")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("InvalidCredentials")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Blank username")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "Blank username")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:username", "\"\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:password", "\"password\"")]
+        public virtual void UserCannotLoginWithInvalidCredentials_BlankUsername()
+        {
+#line 8
+this.UserCannotLoginWithInvalidCredentials("Blank username", "\"\"", "\"password\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User cannot login with invalid credentials: Blank password")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Invalid Credentials Login")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("InvalidCredentials")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Blank password")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "Blank password")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:username", "\"john\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:password", "\"\"")]
+        public virtual void UserCannotLoginWithInvalidCredentials_BlankPassword()
+        {
+#line 8
+this.UserCannotLoginWithInvalidCredentials("Blank password", "\"john\"", "\"\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User cannot login with invalid credentials: Unicode characters")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Invalid Credentials Login")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("InvalidCredentials")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Unicode characters")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "Unicode characters")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:username", "\"J”??\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:password", "\"?„???”??\"")]
+        public virtual void UserCannotLoginWithInvalidCredentials_UnicodeCharacters()
+        {
+#line 8
+this.UserCannotLoginWithInvalidCredentials("Unicode characters", "\"J”??\"", "\"?„???”??\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User cannot login with invalid credentials: SQL injection")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Invalid Credentials Login")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("InvalidCredentials")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "SQL injection")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:example description", "SQL injection")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:username", "\"\' or \'1\'=\'1\'\"")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:password", "\"\' or \'1\'=\'1\'\"")]
+        public virtual void UserCannotLoginWithInvalidCredentials_SQLInjection()
+        {
+#line 8
+this.UserCannotLoginWithInvalidCredentials("SQL injection", "\"\' or \'1\'=\'1\'\"", "\"\' or \'1\'=\'1\'\"", ((string[])(null)));
+#line hidden
         }
     }
 }
