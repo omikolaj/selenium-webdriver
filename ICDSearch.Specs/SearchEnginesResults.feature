@@ -20,5 +20,5 @@ Scenario Outline: Search engine returns ICD Portal as first result
 Scenario: Google News returns ICD Press Conference as first result
 	Given a web browser is on the Google's News tab
 	When the search phrase "Institutional Cash Distributors" is executed
-	Then the first result for "Institutional Cash Distributors" should be ICD Press release
+	Then the first result for "Institutional Cash Distributors" should be ICD Press release 
 

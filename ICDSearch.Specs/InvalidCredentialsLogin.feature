@@ -10,7 +10,7 @@ Scenario Outline: User cannot login with invalid credentials
 	When I fill in Username field with <username>
 	And I fill in Password field with <password>
 	And I press the Login button
-	Then he should see "Invalid username and/or password" message
+	Then I should see "Invalid username and/or password" message
 
 	Examples: 
 		| example description  | username       | password       |
