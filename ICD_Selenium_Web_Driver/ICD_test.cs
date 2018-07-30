@@ -104,12 +104,6 @@ namespace ICD_Selenium_Web_Driver
 
         }
 
-        [Test]
-        public void failingTest()
-        {
-            Assert.True(false);
-        }
-
         #endregion Tests
 
     }
