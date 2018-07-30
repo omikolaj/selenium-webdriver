@@ -59,7 +59,7 @@ namespace ICDSearch.Specs
             _loginPage.Login();
         }
         
-        [Then(@"he should see ""(.*)"" message")]
+        [Then(@"I should see ""(.*)"" message")]
         public void ThenHeShouldSeeMessage(string errorMessage)
         {
             bool errorMessageDisplayed = _loginPage.IsErrorMessageDisplayed;
