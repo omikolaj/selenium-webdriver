@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.PageObjects;
+using OpenQA.Selenium.Support.PageObjects;
 using System;
 
 namespace ICD_Selenium_Web_Driver.PageObjects
