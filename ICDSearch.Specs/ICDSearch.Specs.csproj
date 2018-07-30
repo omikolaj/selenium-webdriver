@@ -67,12 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoogleNewsSearchEngine.feature.cs">
+    <Compile Include="GoogleNewsSearchResults.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GoogleNewsSearchEngine.feature</DependentUpon>
+      <DependentUpon>GoogleNewsSearchResults.feature</DependentUpon>
     </Compile>
-    <Compile Include="GoogleNewsSearchEngineSteps.cs" />
+    <Compile Include="GoogleNewsSearchResults.cs" />
     <Compile Include="InvalidCredentialsLoginSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchEnginesResults.feature.cs">
@@ -89,9 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="GoogleNewsSearchEngine.feature">
+    <None Include="GoogleNewsSearchResults.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GoogleNewsSearchEngine.feature.cs</LastGenOutput>
+      <LastGenOutput>GoogleNewsSearchResults.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="SearchEnginesResults.feature">
