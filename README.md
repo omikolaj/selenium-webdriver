@@ -9,6 +9,6 @@ To run tests locally, you must add the chromedriver.exe to your PATH. [You can f
 1. Clone the repository
 2. In the directory where the files were cloned open up the ICD_Selenium_Web_Driver.sln solution file using Visual Studio 2017
 3. In the Solution Explorer right-click on the solution and select "Restore NuGet Packages"
-4. Build the solution using
+4. Build the solution using 
 
     
