@@ -57,12 +57,6 @@ namespace ICDSearch.Specs
             }
         }
         
-        [Given(@"a web browser is on the Google's News tab")]
-        public void GivenAWebBrowserIsOnTheGoogleSNewsTab()
-        {
-            
-        }
-        
         [When(@"""(.*)"" executes the search for ""(.*)""")]
         public void WhenExecutesTheSearchFor(string searchEngine, string searchPhrase)
         {
@@ -77,12 +71,6 @@ namespace ICDSearch.Specs
                 default:
                     break;
             }
-        }
-        
-        [When(@"the search phrase ""(.*)"" is executed")]
-        public void WhenTheSearchPhraseIsExecuted(string searchPhrase)
-        {
-            
         }
         
         [Then(@"the first ""(.*)"" result for ""(.*)"" should be ""(.*)""")]
@@ -101,12 +89,6 @@ namespace ICDSearch.Specs
             }
 
             Assert.That(_driver.Url, Is.EqualTo(expectedResult), "The first returned website URL did not match the expected website URL");
-        }
-        
-        [Then(@"the first result for ""(.*)"" should be ICD Press release")]
-        public void ThenTheFirstResultForShouldBeICDPressRelease(string searchPhrase)
-        {
-            
         }
 
         #endregion Tests

@@ -18,20 +18,20 @@ namespace ICDSearch.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Invalid Credentials Login")]
-    public partial class InvalidCredentialsLoginFeature
+    [NUnit.Framework.DescriptionAttribute("ICD Portal Login")]
+    public partial class ICDPortalLoginFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "InvalidCredentialsLogin.feature"
+#line 1 "ICDPortalLogin.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Invalid Credentials Login", "\tUser without valid credentials\r\n\tshould not be able to log in\r\n\tto ICD Portal", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ICD Portal Login", "\tUser without valid credentials\r\n\tshould not be able to log in\r\n\tto ICD Portal", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

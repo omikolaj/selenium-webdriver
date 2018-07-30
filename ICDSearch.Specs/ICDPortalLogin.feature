@@ -1,4 +1,4 @@
-﻿Feature: Invalid Credentials Login
+﻿Feature: ICD Portal Login
 	User without valid credentials
 	should not be able to log in
 	to ICD Portal

@@ -67,6 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoogleNewsSearchEngine.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoogleNewsSearchEngine.feature</DependentUpon>
+    </Compile>
+    <Compile Include="GoogleNewsSearchEngineSteps.cs" />
     <Compile Include="InvalidCredentialsLoginSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchEnginesResults.feature.cs">
@@ -74,23 +80,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchEnginesResults.feature</DependentUpon>
     </Compile>
-    <Compile Include="InvalidCredentialsLogin.feature.cs">
+    <Compile Include="ICDPortalLogin.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InvalidCredentialsLogin.feature</DependentUpon>
+      <DependentUpon>ICDPortalLogin.feature</DependentUpon>
     </Compile>
     <Compile Include="SearchEnginesResultsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="GoogleNewsSearchEngine.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GoogleNewsSearchEngine.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="SearchEnginesResults.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SearchEnginesResults.feature.cs</LastGenOutput>
     </None>
-    <None Include="InvalidCredentialsLogin.feature">
+    <None Include="ICDPortalLogin.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>InvalidCredentialsLogin.feature.cs</LastGenOutput>
+      <LastGenOutput>ICDPortalLogin.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
