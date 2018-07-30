@@ -31,8 +31,8 @@ namespace ICDSearch.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Google News Search Results", "\tA search in Google News\r\n\tfor Institutional Cash Distributors\r\n\tshould return IC" +
-                    "D Press release as a first result", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Google News Search Results", "\tSearch in Google News\r\n\tfor Institutional Cash Distributors\r\n\tshould return ICD " +
+                    "Press release as a first result", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
